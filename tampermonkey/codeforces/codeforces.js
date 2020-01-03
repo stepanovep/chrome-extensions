@@ -5,6 +5,7 @@
 // @description  Hide/unhide codeforces problem tags by pressing RightAlt
 // @author       stepanovep
 // @match        http://codeforces.com/*
+// @match        https://codeforces.com/*
 // @grant        none
 // ==/UserScript==
 
@@ -25,13 +26,10 @@ function initialize() {
 }
 
 initialize();
-let observer = new MutationObserver(initialize);
-observer.observe(document.documentElement, {childList: true, subtree: true});
 
 document.addEventListener('keydown', function(event) {
     console.log(event.code);
     if (event.code === 'AltRight' && tagsDiv) {
-        console.log('Tags hidden reverted');
         tagsDiv.hidden = !tagsDiv.hidden;
     }
 });
