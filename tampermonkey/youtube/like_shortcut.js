@@ -10,14 +10,16 @@
 let like_button;
 
 function init() {
-    let buttons = document.querySelectorAll('#top-level-buttons > ytd-toggle-button-renderer');
-    if (buttons.length > 0) {
-        like_button = buttons[0];
-        console.log('like button found');
-        return;
-    }
+    if (!like_button) {
+        let buttons = document.querySelectorAll('#top-level-buttons > ytd-toggle-button-renderer');
+        if (buttons.length > 0) {
+            like_button = buttons[0];
+            console.log('like button found');
+            return;
+        }
 
-    console.log('like button not found');
+        console.log('like button not found');
+    }
 }
 
 const observer = new MutationObserver(init);
@@ -26,7 +28,6 @@ observer.observe(document.documentElement, {childList: true, subtree: true});
 init();
 
 document.addEventListener('keydown', function(event) {
-    console.log(event.code);
     if (event.code === 'Enter' && like_button) {
         like_button.click();
         console.log('like button clicked');
