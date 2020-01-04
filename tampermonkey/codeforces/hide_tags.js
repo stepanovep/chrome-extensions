@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Codeforces problem tags hider
-// @namespace    stepanovep
+// @namespace    codeforces
 // @version      0.1
 // @description  Hide/unhide codeforces problem tags by pressing RightAlt
-// @author       stepanovep
-// @match        http://codeforces.com/*
-// @match        https://codeforces.com/*
+// @include      https://codeforces.com/*
+// @include      http://codeforces.com/*
 // @grant        none
+// @author       stepanovep
 // ==/UserScript==
 
 var tagsDiv;
@@ -28,8 +28,8 @@ function initialize() {
 initialize();
 
 document.addEventListener('keydown', function(event) {
-    console.log(event.code);
     if (event.code === 'AltRight' && tagsDiv) {
+        console.log('Tags hidden reverted');
         tagsDiv.hidden = !tagsDiv.hidden;
     }
 });
