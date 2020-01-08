@@ -1,5 +1,7 @@
 const futbin_player_url_regexp = /.*\/player\/(\d+)\/.*/;
 
+chrome.runtime.sendMessage({message: 'activate_icon'});
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     console.log('content js');
 
@@ -16,7 +18,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                 absentPlayers.push(player);
             }
         }
-        chrome.runtime.sendMessage(absentPlayers);
+        chrome.runtime.sendMessage({
+            message: 'absent_players',
+            absent_players: absentPlayers
+        });
     });
 });
 
