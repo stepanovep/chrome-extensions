@@ -1,0 +1,24 @@
+{
+  "name": "fut-diff",
+  "manifest_version": 2,
+  "version": "1.0",
+  "description": "Displays players that you don't have in your club",
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "fut-diff"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.futbin.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "permissions": ["tabs"]
+}
