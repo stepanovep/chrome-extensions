@@ -5,16 +5,14 @@ chrome.runtime.sendMessage({message: 'activate_icon'});
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     console.log('content js');
 
-    let allPlayersPromise = getAllPlayers(request.rating, 15000); //todo get price_max from popup
+    let allPlayersPromise = getAllPlayers(request.rating, request.max_price);
     let clubPlayersPromise = getClubPlayers(request.rating);
 
     Promise.all([allPlayersPromise, clubPlayersPromise]).then(function([allPlayers, clubPlayers]) {
-        console.log('Absent players:');
-
         let absentPlayers = [];
-        for (let player_id in allPlayers) {
-            if (!clubPlayers.has(player_id)) {
-                let player = allPlayers[player_id];
+        for (let playerId in allPlayers) {
+            if (!clubPlayers.has(playerId)) {
+                let player = allPlayers[playerId];
                 absentPlayers.push(player);
             }
         }
