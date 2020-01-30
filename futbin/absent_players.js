@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let tb = document.createElement('table');
     tb.style.width = '25%';
     tb.setAttribute('border', '1');
+    tb.setAttribute('display', 'table-header-group');
     let tbody = document.createElement('tbody');
 
+    tb.appendChild(createHeader());
+
     for (let player of bg.absentPlayers) {
-        // const div = document.createElement('div');
-        // div.textContent = `${player.name} (${player.type}), ps: ${player.ps_price}, xbox: ${player.xbox_price}`;
-        // document.body.appendChild(div);
         const column = createColumn(player);
         tbody.appendChild(column);
     }
@@ -18,14 +18,46 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(tb);
 });
 
+function createHeader() {
+    let thead = document.createElement('thead');
+    let tr = document.createElement('tr');
+
+    let nameHead = document.createElement('th');
+    nameHead.textContent = 'Name';
+
+    let ratingHead = document.createElement('th');
+    ratingHead.textContent = 'Rating';
+
+    let typeHead = document.createElement('th');
+    typeHead.textContent = 'Type';
+
+    let xboxPriceHead = document.createElement('th');
+    xboxPriceHead.textContent = 'Xbox';
+
+    let psPriceHead = document.createElement('th');
+    psPriceHead.textContent = 'PS4';
+
+    // tr.append(nameHead, ratingHead, typeHead, xboxPriceHead, psPriceHead);
+    tr.appendChild(nameHead);
+    tr.appendChild(ratingHead);
+    tr.appendChild(typeHead);
+    tr.appendChild(xboxPriceHead);
+    tr.appendChild(psPriceHead);
+    thead.appendChild(tr);
+
+    return thead;
+}
+
 function createColumn(player) {
     let nameCell = createCellWithText(player.name);
+    let ratingCell = createCellWithText(player.rating);
     let typeCell = createCellWithText(player.type);
     let psPriceCell = createCellWithText(player.ps_price);
     let xboxPriceCell = createCellWithText(player.xbox_price);
 
     let column = document.createElement('tr');
     column.appendChild(nameCell);
+    column.appendChild(ratingCell);
     column.appendChild(typeCell);
     column.appendChild(psPriceCell);
     column.appendChild(xboxPriceCell);

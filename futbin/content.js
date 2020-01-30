@@ -60,14 +60,16 @@ async function getAllPlayers(rating, price_max) {
             let playerUrl = player.getAttribute('data-url');
             if (playerUrl != null) {
                 let splits = player.querySelectorAll('td');
-                const playerName = splits[0].textContent.trim();
+                const name = splits[0].textContent.trim();
+                const rating = splits[1].textContent;
                 const ratingTags = splits[1].querySelector('span').className;
-                const type = ratingTags.includes('ucl') ? 'ucl' : 'base';
+                const type = ratingTags.replace(/rating|form/gi, '');
                 const psPrice = splits[2].textContent;
                 const xboxPrice = splits[3].textContent;
                 const playerId = getIdFromHref(playerUrl);
                 allPlayers[playerId] = {
-                    name: playerName,
+                    name: name,
+                    rating: rating,
                     type: type,
                     ps_price: psPrice,
                     xbox_price: xboxPrice,
