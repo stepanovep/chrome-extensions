@@ -2,9 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bg = chrome.extension.getBackgroundPage();
 
     let tb = document.createElement('table');
-    tb.style.width = '25%';
-    tb.setAttribute('border', '1');
-    tb.setAttribute('display', 'table-header-group');
+    tb.setAttribute('class', 'content-table');
     let tbody = document.createElement('tbody');
 
     tb.appendChild(createHeader());
@@ -37,12 +35,7 @@ function createHeader() {
     let psPriceHead = document.createElement('th');
     psPriceHead.textContent = 'PS4';
 
-    // tr.append(nameHead, ratingHead, typeHead, xboxPriceHead, psPriceHead);
-    tr.appendChild(nameHead);
-    tr.appendChild(ratingHead);
-    tr.appendChild(typeHead);
-    tr.appendChild(xboxPriceHead);
-    tr.appendChild(psPriceHead);
+    tr.append(nameHead, ratingHead, typeHead, xboxPriceHead, psPriceHead);
     thead.appendChild(tr);
 
     return thead;
