@@ -1,0 +1,21 @@
+.field.is-grouped {
+    justify-content: space-between;
+    font-size: 0.9em;
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    margin: 1px 5px;
+    vertical-align: auto;
+}
+
+.input {
+    width: 3em;
+}
+
+p {
+    /* display: block; */
+    font-size: 1em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

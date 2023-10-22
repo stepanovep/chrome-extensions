@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="bulma.min.css" />
+	<link rel="stylesheet" href="popup.css" />
+	<title>FUTjitsu</title>
+</head>
+
+<body>
+	<div class="container m-3">
+		<h1 class="title">FUTjitsu</h1>
+	</div>
+
+	<nav class="tabs is-boxed is-fullwidth is-small">
+		<div class="container">
+			<ul>
+				<li class="tab is-active" tabId="shortcuts-tab-content"><a>Shortcuts</a></li>
+				<li class="tab" tabId="snipe-tab-content"><a>Snipe59</a></li>
+				<li class="tab" tabId="bpm-tab-content"><a>BPM</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div id="shortcuts-tab-content" class="content-tab">
+			<div class="field is-grouped">
+				<label for="">Search</label>
+				<input class="input is-small is-rounded" type="text" value="S">
+			</div>
+			<div class="field is-grouped">
+				<label for="">Go Back</label>
+				<input class="input is-small is-rounded" type="text" value="A">
+			</div>
+			<div class="field is-grouped">
+				<label for="">Compare Price</label>
+				<input class="input is-small is-rounded" type="text" value="C">
+			</div>
+			<div class="field is-grouped">
+				<label for="">Send To Club</label>
+				<input class="input is-small is-rounded" type="text" value="F">
+			</div>
+			<div class="field is-grouped">
+				<label for="">Send To Transfer Market</label>
+				<input class="input is-small is-rounded" type="text" value="T">
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="snipe-tab-content" class="content-tab" style="display: none;">
+			<div class="field is-grouped">
+				<label for="">Start snipe</label>
+				<input class="input is-small is-rounded" type="text" value="?">
+			</div>
+			<div class="field is-grouped">
+				<label for="">Stop snipe</label>
+				<input class="input is-small is-rounded" type="text" value="?">
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="bpm-tab-content" class="content-tab" style="display: none;">
+			<div class="field is-grouped">
+				<label for="">Start BPM</label>
+				<input class="input is-small is-rounded" type="text" value="?">
+			</div>
+		</div>
+	</div>
+
+	<script src="popup.js"></script>
+</body>
+
+</html>

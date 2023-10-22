@@ -1,0 +1,26 @@
+{
+  "name": "FUTjitsu",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "description": "Enhancing FC Web App with shortcuts and automation",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://www.ea.com/ea-sports-fc/ultimate-team/web-app/"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.ea.com/ea-sports-fc/ultimate-team/web-app/"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/play.png",
+      "24": "assets/play.png",
+      "32": "assets/play.png"
+    },
+    "default_title": "FUTjitsu",
+    "default_popup": "popup/popup.html"
+  }
+}
