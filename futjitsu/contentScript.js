@@ -35,7 +35,7 @@ function getButtonByText(text) {
 }
 
 function click(button) {
-    if (!button) {
+    if (!button || document.activeElement.localName === "input") {
         return;
     }
     triggerMouseEvent(button, "mouseover");
