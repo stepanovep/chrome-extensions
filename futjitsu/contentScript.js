@@ -22,6 +22,12 @@ const SEND_TO_TRANSFER_MARKET_BTN_TEXT = "Send to Transfer List";
             case 'KeyT':
                 click(getButtonByText(SEND_TO_TRANSFER_MARKET_BTN_TEXT));
                 break;
+            case 'ArrowUp':
+                clickNextSibling('up');
+                break;
+            case 'ArrowDown':
+                clickNextSibling('down');
+                break;
             default:
                 break;
         }
@@ -48,4 +54,16 @@ function triggerMouseEvent(node, eventType) {
     var clickEvent = document.createEvent('MouseEvents');
     clickEvent.initEvent(eventType, true, true);
     node.dispatchEvent(clickEvent);
+}
+
+function clickNextSibling(direction) {
+    const dx = direction === 'up' ? -1 : 1;
+    const lis = document.querySelectorAll('li.listFUTItem');
+    for (let i = 0; i < lis.length; i++) {
+        if (lis[i].classList.contains('selected')) {
+            const nextIdx = i + dx;
+            click(lis[nextIdx]);
+            return;
+        }
+    }
 }
