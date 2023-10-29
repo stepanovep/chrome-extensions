@@ -3,6 +3,8 @@ const BACK_TO_SEARCH_BTN_SELECTOR = ".ut-navigation-button-control";
 const COMPARE_PRICE_BTN_TEXT = "Compare Price";
 const SEND_TO_CLUB_BTN_TEXT = "Send to My Club";
 const SEND_TO_TRANSFER_MARKET_BTN_TEXT = "Send to Transfer List";
+const TOGGLE_WATCH_BTN_SELECTOR = ".ut-toggle-button-control.watch";
+const BID_BTN_SELECTOR = ".bidButton";
 
 (() => {
 	document.addEventListener('keydown', function(event) {
@@ -27,6 +29,12 @@ const SEND_TO_TRANSFER_MARKET_BTN_TEXT = "Send to Transfer List";
                 break;
             case 'ArrowDown':
                 clickNextSibling('down');
+                break;
+            case 'KeyW':
+                click(document.querySelector(TOGGLE_WATCH_BTN_SELECTOR));
+                break;
+            case 'KeyR':
+                click(document.querySelector(BID_BTN_SELECTOR));
                 break;
             default:
                 break;
