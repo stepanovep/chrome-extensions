@@ -5,6 +5,8 @@ const SEND_TO_CLUB_BTN_TEXT = "Send to My Club";
 const SEND_TO_TRANSFER_MARKET_BTN_TEXT = "Send to Transfer List";
 const TOGGLE_WATCH_BTN_SELECTOR = ".ut-toggle-button-control.watch";
 const BID_BTN_SELECTOR = ".bidButton";
+const BUY_NOW_BTN_SELECTOR = ".buyButton";
+const ACCEPT_DIALOG_BTN_SELECTOR = ".view-modal-container > .ea-dialog-view button";
 
 (() => {
 	document.addEventListener('keydown', function(event) {
@@ -35,6 +37,12 @@ const BID_BTN_SELECTOR = ".bidButton";
                 break;
             case 'KeyR':
                 click(document.querySelector(BID_BTN_SELECTOR));
+                break;
+            case 'KeyH':
+                click(document.querySelector(BUY_NOW_BTN_SELECTOR));
+                setTimeout(() => {
+                    click(document.querySelector(ACCEPT_DIALOG_BTN_SELECTOR));
+                }, 100);
                 break;
             default:
                 break;
