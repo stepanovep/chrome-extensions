@@ -2,7 +2,7 @@
 // @name         leetcode editor hidden toggler
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  press `rightAlt` to hide/unhide editor content
+// @description  press `alt + H` / `option + H` to hide/unhide editor content
 // @author       stepanovep
 // @match        https://leetcode.com/problems/*
 // @grant        none
